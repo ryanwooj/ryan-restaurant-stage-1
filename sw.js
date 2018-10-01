@@ -34,3 +34,18 @@ self.addEventListener('activate', function (event) {
     })
   )
 });
+
+//fetch the service Worker
+
+self.addEventListener('fetch', function (event) {
+  if (event.request.url.includes('restaurant.html')) {
+    caches.match('restaurant.html').then(function (response) {
+      return response;
+    })
+  }
+  event.respondWith(
+    caches.match(event.request).then(function (response) {
+      return response || fetch(event.request);
+    })
+  )
+});
