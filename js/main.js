@@ -161,10 +161,13 @@ createRestaurantHTML = (restaurant) => {
   const image = document.createElement('img');
   image.className = 'restaurant-img';
   image.src = DBHelper.imageUrlForRestaurant(restaurant);
+  image.alt = restaurant.name + ' image'; //Set Alt tag for accessibility
   li.append(image);
 
   const name = document.createElement('h1');
   name.innerHTML = restaurant.name;
+  name.tabIndex = 0; //Focus on restaurant name for accessibility
+  name.setAttribute('aria-label', restaurant.name); // aria-label to improve accessibility
   li.append(name);
 
   const neighborhood = document.createElement('p');
@@ -178,6 +181,8 @@ createRestaurantHTML = (restaurant) => {
   const more = document.createElement('a');
   more.innerHTML = 'View Details';
   more.href = DBHelper.urlForRestaurant(restaurant);
+  more.setAttribute('role', 'button'); //Let user know that this is button!
+  more.setAttribute('aria-label', 'More Details on ' + restaurant.name);
   li.append(more)
 
   return li
