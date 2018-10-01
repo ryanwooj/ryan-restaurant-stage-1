@@ -381,6 +381,8 @@ nav h1 a {
 		background-color: #ff7473;
 	}
 }
+
+
 @media only screen and (min-width: 821px) {
 	.inside header {
 		position: fixed;
