@@ -164,7 +164,7 @@ createRestaurantHTML = (restaurant) => {
   image.alt = restaurant.name + ' image'; //Set Alt tag for accessibility
   li.append(image);
 
-  const name = document.createElement('h1');
+  const name = document.createElement('h2');
   name.innerHTML = restaurant.name;
   name.tabIndex = 0; //Focus on restaurant name for accessibility
   name.setAttribute('aria-label', restaurant.name); // aria-label to improve accessibility
